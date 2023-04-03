@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:iot_smart_home/Home_view.dart';
 import 'package:iot_smart_home/Layout.dart';
+import 'package:iot_smart_home/SecondPage.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -47,9 +48,20 @@ class HomePage extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
 
-                  children: const [
-                    HomeWid(title: "Energy",image: "energy.png",),
-                    HomeWid(title: "Temperature",image: "temperature.png",colorWid:true),
+                  children:   [
+                    const HomeWid(title: "Energy",image: "energy.png",),
+                    InkWell(
+                        onTap: (){
+                          Navigator.push(context,MaterialPageRoute(builder: (context)=>const SecondPage()));
+
+                        },
+                      child: const HomeWid(title: "Temperature",
+                        image: "temperature.png",
+                        colorWid:true,
+
+                      ),
+                    ),
+
                   ],
                 ),
                 const SizedBox(height: 14,),
@@ -70,3 +82,5 @@ class HomePage extends StatelessWidget {
     );
   }
 }
+
+
